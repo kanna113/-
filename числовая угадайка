@@ -1,0 +1,54 @@
+flag = True
+while True:
+    import random
+
+    def is_valid(num):
+        if num.isdigit():
+            num = int(num)
+            if 1 <= num <= 100:
+                return True
+            else:
+                return False
+        else:
+            return False
+    
+    digit = random.randint(1, 100)
+    print('Добро пожаловать в числовую угадайку!')
+
+    while n != True:
+        n = input('Введи число от 1 до 100: ')
+        if is_valid(n) == False:
+            print('Необходимо вести число от 1 до 100')
+        else:
+            n = int(n)
+            break
+
+    count = 1
+
+    while n != digit:
+        if n < digit:
+            print('Твое число меньше загаданного.')
+            count += 1
+            while n != True:
+                n = input('Попробуй еще раз: ')
+                if is_valid(n) == False:
+                    print('Необходимо вести число от 1 до 100')
+                else:
+                    n = int(n)
+                    break
+        elif n > digit:
+            print('Твое число больше задуманного.')
+            count += 1
+            while n != True:
+                n = input('Попробуй еще раз: ')
+                if is_valid(n) == False:
+                    print('Необходимо вести число от 1 до 100')
+                else:
+                    n = int(n)
+                    break
+
+    print('Ты угадал за ', count, 'попыток, поздравляем!')
+    print('Спасибо, что играл в числовую угадайку!')
+    qw = input('Хочешь сыграть еще раз? (д = да, н = нет)')
+    if qw == 'н':
+        break
